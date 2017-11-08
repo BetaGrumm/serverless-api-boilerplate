@@ -1,0 +1,25 @@
+{
+  "name": "serverless-demo",
+  "version": "1.0.0",
+  "description": "A demo prototype for a AWS Lambda workflow using the Serverless framework.",
+  "main": "handler.js",
+  "dependencies": {
+    "serverless": "^1.24.1"
+  },
+  "devDependencies": {
+    "serverless": "^1.24.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetaGrumm/serverless-demo.git"
+  },
+  "author": "Micah Kramer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetaGrumm/serverless-demo/issues"
+  },
+  "homepage": "https://github.com/BetaGrumm/serverless-demo#readme"
+}

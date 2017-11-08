@@ -1,0 +1,25 @@
+service: serverless-demo
+provider:
+  name: aws
+  runtime: nodejs6.10
+  profile: qa # AWS credentials profile. Found in ~/.aws/credentials.
+  stage: qa
+  region: us-west-2
+
+package:
+ include:
+   - handler.js
+   - README.md
+ exclude:
+   - ./**
+
+functions:
+  hello:
+    handler: handler.hello
+    name: serverless-demo
+    description: A demo prototype for a AWS Lambda workflow using the Serverless framework.
+    runtime: nodejs6.10
+    events:
+      - http:
+          path: /check
+          method: get
