@@ -1,4 +1,5 @@
-service: serverless-demo
+service: sls-sites-api-demo
+
 provider:
   name: aws
   runtime: nodejs6.10
@@ -9,17 +10,41 @@ provider:
 package:
  include:
    - handler.js
-   - README.md
  exclude:
    - ./**
 
 functions:
-  hello:
-    handler: handler.hello
-    name: serverless-demo
-    description: A demo prototype for a AWS Lambda workflow using the Serverless framework.
-    runtime: nodejs6.10
+  readSites:
+    handler: handler.readSites
     events:
       - http:
-          path: /check
+          path: /sites
           method: get
+
+  readSite:
+    handler: handler.readSite
+    events:
+      - http:
+          path: /sites/{subdomain}
+          method: get
+  
+  createSite:
+    handler: handler.createSite
+    events:
+      - http:
+          path: /sites/{subdomain}
+          method: post
+  
+  updateSite:
+    handler: handler.updateSite
+    events:
+      - http:
+          path: /sites/{subdomain}
+          method: patch
+  
+  deleteSite:
+    handler: handler.deleteSite
+    events:
+      - http:
+          path: /sites/{subdomain}
+          method: delete

@@ -1,17 +1,61 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
+module.exports.readSites = (event, context, callback) => {
   
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
+      message: 'Read all Sites.'
     }),
   };
 
   callback(null, response);
+};
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+module.exports.readSite = (event, context, callback) => {
+  
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Read a single site.'
+    }),
+  };
+
+  callback(null, response);
+};
+
+module.exports.createSite = (event, context, callback) => {
+  
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Create a Site.'
+    }),
+  };
+
+  callback(null, response);
+};
+
+module.exports.updateSite = (event, context, callback) => {
+  
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Update a Site.'
+    }),
+  };
+
+  callback(null, response);
+};
+
+module.exports.deleteSite = (event, context, callback) => {
+  
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Delete a Site.'
+    }),
+  };
+
+  callback(null, response);
 };
