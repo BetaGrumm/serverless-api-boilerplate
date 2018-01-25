@@ -2,49 +2,65 @@ service: sls-sites-api-demo
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs6.10 # AWS Lambda nodejs runtime.
   profile: qa # AWS credentials profile. Found in ~/.aws/credentials.
   stage: qa
   region: us-west-2
 
 package:
  include:
-   - handler.js
+   - handlers/**
+   - main.js
  exclude:
    - ./**
 
 functions:
+  error405:
+    handler: handlers/errors.error405
+    events:
+      - http:
+          path: /sites # Catch all error handler for "Method not Allowed" erros.
+          method: any
+      
+  error404:
+    handler: handlers/errors.error404
+    events:
+      - http:
+          path: /sites/{subdomain}/{proxy+} # Catch all error handling for invalid resources.
+          method: any
+
   readSites:
-    handler: handler.readSites
+    handler: handlers/sites/readMany.read
     events:
       - http:
           path: /sites
           method: get
 
   readSite:
-    handler: handler.readSite
+    handler: handlers/sites/readOne.read
     events:
       - http:
           path: /sites/{subdomain}
           method: get
   
   createSite:
-    handler: handler.createSite
+    handler: handlers/sites/create.create
     events:
       - http:
-          path: /sites/{subdomain}
+          path: /sites
           method: post
   
   updateSite:
-    handler: handler.updateSite
+    handler: handlers/sites/update.update
     events:
       - http:
           path: /sites/{subdomain}
           method: patch
   
   deleteSite:
-    handler: handler.deleteSite
+    handler: handlers/sites/delete.delete
     events:
       - http:
           path: /sites/{subdomain}
           method: delete
+
