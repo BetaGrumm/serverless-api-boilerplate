@@ -15,18 +15,24 @@ package:
    - ./**
 
 functions:
-  error405:
+  error405: # Catch all error handler for "Method not Allowed" erros.
     handler: handlers/errors.error405
     events:
       - http:
-          path: /sites # Catch all error handler for "Method not Allowed" erros.
+          path: /sites
           method: any
-      
-  error404:
+      - http:
+          path: /sites/{subdomain}
+          method: any
+          
+  error404: # Catch all error handling for invalid resources.
     handler: handlers/errors.error404
     events:
       - http:
-          path: /sites/{subdomain}/{proxy+} # Catch all error handling for invalid resources.
+          path: /
+          method: any
+      - http:
+          path: /sites/{subdomain}/{proxy+}
           method: any
 
   readSites:
