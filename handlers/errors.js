@@ -5,7 +5,7 @@ module.exports.error404 = (event, context, callback) => {
     statusCode: 404,
     body: JSON.stringify({
       title: 'Resource Not Found.',
-      message: `blah is not valid path to a Sites API resource.`,
+      message: `That is not valid path to a Sites API resource.`,
       event: `${JSON.stringify(event)}`
     })
   };
