@@ -4,7 +4,10 @@
   "description": "A demo prototype for a AWS Lambda workflow using the Serverless framework.",
   "main": "handler.js",
   "dependencies": {
-    "serverless": "^1.24.1"
+    "bluebird": "^3.5.1",
+    "mongoose": "^5.0.1",
+    "serverless": "^1.24.1",
+    "validator": "^9.3.0"
   },
   "devDependencies": {
     "serverless": "^1.24.1"
