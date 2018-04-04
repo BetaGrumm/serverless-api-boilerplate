@@ -69,3 +69,5 @@ functions:
           path: /sites/{subdomain}
           method: delete
 
+plugins:
+- serverless-offline
