@@ -4,6 +4,7 @@
   "description": "A demo prototype for a AWS Lambda workflow using the Serverless framework.",
   "main": "handler.js",
   "dependencies": {
+    "dotenv": "^5.0.1",
     "mongoose": "^5.0.12",
     "validator": "^9.4.1"
   },
