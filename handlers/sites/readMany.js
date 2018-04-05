@@ -1,5 +1,7 @@
 'use strict';
-
+const connectToDatabase = require('../../utils/db');
+const Site = require('../../models/Site');
+require('dotenv').config();
 module.exports.read = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   connectToDatabase()
