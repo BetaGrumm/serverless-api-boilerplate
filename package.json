@@ -9,11 +9,14 @@
     "validator": "^9.4.1"
   },
   "devDependencies": {
+    "mocha": "^5.0.5",
+    "nodemon": "^1.17.3",
     "serverless": "^1.26.1",
     "serverless-offline": "^3.20.1"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon --exec 'sls offline start --skipCacheInvalidation' -w serverless.yml"
   },
   "repository": {
     "type": "git",

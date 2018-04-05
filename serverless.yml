@@ -1,4 +1,4 @@
-service: sls-serverless-demo
+service: serverless-demo
 
 provider:
   name: aws
@@ -19,7 +19,7 @@ package:
 
 functions:
   error405: # Catch all error handler for "Method not Allowed" erros.
-    handler: handlers/errors.error405
+    handler: sites/handlers/errors.error405
     events:
       - http:
           path: /sites
@@ -29,7 +29,7 @@ functions:
           method: any
           
   error404: # Catch all error handling for invalid resources.
-    handler: handlers/errors.error404
+    handler: sites/handlers/errors.error404
     events:
       - http:
           path: /
@@ -37,37 +37,37 @@ functions:
       - http:
           path: /sites/{subdomain}/{proxy+}
           method: any
+  
+  create:
+    handler: sites/handlers/create.create
+    events:
+      - http:
+          path: /sites
+          method: post
 
-  readSites:
-    handler: handlers/sites/readMany.read
+  readMany:
+    handler: sites/handlers/readMany.read
     events:
       - http:
           path: /sites
           method: get
 
-  readSite:
-    handler: handlers/sites/readOne.read
+  readOne:
+    handler: sites/handlers/readOne.read
     events:
       - http:
           path: /sites/{subdomain}
           method: get
   
-  createSite:
-    handler: handlers/sites/create.create
-    events:
-      - http:
-          path: /sites
-          method: post
-  
-  updateSite:
-    handler: handlers/sites/update.update
+  update:
+    handler: sites/handlers/update.update
     events:
       - http:
           path: /sites/{subdomain}
           method: patch
   
-  deleteSite:
-    handler: handlers/sites/delete.delete
+  delete:
+    handler: sites/handlers/delete.delete
     events:
       - http:
           path: /sites/{subdomain}
