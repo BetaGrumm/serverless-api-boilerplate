@@ -17,7 +17,7 @@
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha tests",
-    "start": "nodemon --exec 'sls offline start --skipCacheInvalidation' -w ./"
+    "start": "./node_modules/nodemon/bin/nodemon.js -e 'yml js json env' --exec 'sls offline start --skipCacheInvalidation'"
   },
   "repository": {
     "type": "git",

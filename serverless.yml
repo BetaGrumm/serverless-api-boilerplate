@@ -19,58 +19,58 @@ package:
 
 functions:
   error405: # Catch all error handler for "Method not Allowed" erros.
-    handler: sites/handlers/errors.error405
+    handler: handlers/errors.error405
     events:
       - http:
-          path: /sites
+          path: /things
           method: any
       - http:
-          path: /sites/{subdomain}
+          path: /things/{id}
           method: any
           
   error404: # Catch all error handling for invalid resources.
-    handler: sites/handlers/errors.error404
+    handler: handlers/errors.error404
     events:
       - http:
           path: /
           method: any
       - http:
-          path: /sites/{subdomain}/{proxy+}
+          path: /things/{id}/{proxy+}
           method: any
   
   create:
-    handler: sites/handlers/create.create
+    handler: handlers/create.create
     events:
       - http:
-          path: /sites
+          path: /items
           method: post
 
   readMany:
-    handler: sites/handlers/readMany.read
+    handler: handlers/readMany.read
     events:
       - http:
-          path: /sites
+          path: /items
           method: get
 
   readOne:
-    handler: sites/handlers/readOne.read
+    handler: handlers/readOne.read
     events:
       - http:
-          path: /sites/{subdomain}
+          path: /things/{id}
           method: get
   
   update:
-    handler: sites/handlers/update.update
+    handler: handlers/update.update
     events:
       - http:
-          path: /sites/{subdomain}
+          path: /things/{id}
           method: patch
   
   delete:
-    handler: sites/handlers/delete.delete
+    handler: handlers/delete.delete
     events:
       - http:
-          path: /sites/{subdomain}
+          path: /things/{id}
           method: delete
 
 plugins:
