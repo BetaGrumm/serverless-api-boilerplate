@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+require('dotenv').config();
 let isConnected;
 
 module.exports = connectToDatabase = () => {
