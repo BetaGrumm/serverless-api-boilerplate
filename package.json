@@ -1,13 +1,16 @@
 {
   "name": "serverless-demo",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A demo prototype for a AWS Lambda workflow using the Serverless framework.",
   "main": "handler.js",
   "dependencies": {
-    "serverless": "^1.24.1"
+    "dotenv": "^5.0.1",
+    "mongoose": "^5.0.12",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
-    "serverless": "^1.24.1"
+    "serverless": "^1.26.1",
+    "serverless-offline": "^3.20.1"
   },
   "scripts": {
     "test": "test"

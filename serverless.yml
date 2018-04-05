@@ -1,8 +1,8 @@
-service: sls-sites-api-demo
+service: sls-serverless-demo
 
 provider:
   name: aws
-  runtime: nodejs6.10 # AWS Lambda nodejs runtime.
+  runtime: nodejs8.10 # AWS Lambda nodejs runtime.
   profile: qa # AWS credentials profile. Found in ~/.aws/credentials.
   stage: qa
   region: us-west-2
@@ -10,6 +10,10 @@ provider:
 package:
  include:
    - handlers/**
+   - models/**
+   - utils/**
+   - .env
+   - node_modules/**
  exclude:
    - ./**
 
@@ -69,3 +73,5 @@ functions:
           path: /sites/{subdomain}
           method: delete
 
+plugins:
+- serverless-offline
