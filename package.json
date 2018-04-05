@@ -5,7 +5,7 @@
   "main": "handler.js",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "mongoose": "^5.0.12",
+    "mongoose": "^5.0.13",
     "validator": "^9.4.1"
   },
   "devDependencies": {
