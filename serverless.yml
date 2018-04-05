@@ -10,6 +10,10 @@ provider:
 package:
  include:
    - handlers/**
+   - models/**
+   - utils/**
+   - .env
+   - node_modules/**
  exclude:
    - ./**
 
