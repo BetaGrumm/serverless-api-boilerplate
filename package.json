@@ -15,7 +15,7 @@
     "serverless-offline": "^3.20.1"
   },
   "scripts": {
-    "test": "test",
+    "test": "./node_modules/mocha/bin/mocha tests",
     "start": "nodemon --exec 'sls offline start --skipCacheInvalidation' -w serverless.yml"
   },
   "repository": {
