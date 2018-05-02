@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({path: path.resolve(process.cwd(), 'vars.env')});
 let isConnected;
 
 module.exports = connectToDatabase = () => {

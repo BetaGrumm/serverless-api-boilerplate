@@ -22,10 +22,10 @@ functions:
     handler: handlers/errors.error405
     events:
       - http:
-          path: /things
+          path: /items
           method: any
       - http:
-          path: /things/{id}
+          path: /items/{id}
           method: any
           
   error404: # Catch all error handling for invalid resources.
@@ -35,7 +35,7 @@ functions:
           path: /
           method: any
       - http:
-          path: /things/{id}/{proxy+}
+          path: /items/{id}/{proxy+}
           method: any
   
   create:
@@ -56,21 +56,21 @@ functions:
     handler: handlers/readOne.read
     events:
       - http:
-          path: /things/{id}
+          path: /items/{id}
           method: get
   
   update:
     handler: handlers/update.update
     events:
       - http:
-          path: /things/{id}
+          path: /items/{id}
           method: patch
   
   delete:
     handler: handlers/delete.delete
     events:
       - http:
-          path: /things/{id}
+          path: /items/{id}
           method: delete
 
 plugins:
