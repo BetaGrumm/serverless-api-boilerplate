@@ -10,11 +10,15 @@ The central API resource theme is 'items'. When building a new API based on this
 
 ### List All Items [GET]
 
+Retrieve all items for this resource.
+
 + Response 200 (application/vnd.api+json)
 
         {
             "data": [
                 {
+                    "type": "items"
+                    "id": "1",
                     "attributes": {
                         "field-1": "foo",
                         "field-2": [
@@ -25,11 +29,11 @@ The central API resource theme is 'items'. When building a new API based on this
                             "key-1": "value-1",
                             "key-2": "value-2"
                         }
-                    },
-                    "id": "1",
-                    "type": "item"
+                    }
                 },
                 {
+                    "type": "items",
+                    "id": "2",
                     "attributes": {
                         "field-1": "bar",
                         "field-2": [
@@ -40,55 +44,56 @@ The central API resource theme is 'items'. When building a new API based on this
                             "key-1": "value-3",
                             "key-2": "value-4"
                         }
-                    },
-                    "id": "2",
-                    "type": "item"
+                    }
                 }
             ]
         }
 
-### Create a New Question [POST]
+### Create a Single Item [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+You may create a single item using this resource.
 
-+ Request (application/json)
++ Request (application/vnd.api+json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "data": {
+                "attributes": {
+                    "field-1": "foo",
+                    "field-2": [
+                        "fiz",
+                        "buz
+                    ],
+                    "field-3": {
+                        "key-1": "value-1",
+                        "key-2": "value-2"
+                    }
+                },
+                "type": "items"
+            }
         }
 
 + Response 201 (application/vnd.api+json)
 
     + Headers
 
-            Location: /questions/2
+            Location: /items/3
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
+                "data": {
+                    "type": "items",
+                    "id": "3",
+                    "attributes": {
+                        "field-1": "foo",
+                        "field-2": [
+                            "fiz",
+                            "buz
+                        ],
+                        "field-3": {
+                            "key-1": "value-1",
+                            "key-2": "value-2"
+                        }
                     }
-                ]
+                }
             }
