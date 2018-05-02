@@ -1,37 +1,51 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://serverlessdemo.docs.apiary.io/
 
 # serverless-demo
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Serverless-demo is a prototype API boilerplate that will be used to create lambda APIs in the future.
+The central API resource theme is 'items'. When building a new API based on this prototype, replace the 'items' resource with the resource name of your choice.
 
-## Questions Collection [/questions]
+## Items Collection [/items]
 
-### List All Questions [GET]
+### List All Items [GET]
 
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+        {
+            "data": [
+                {
+                    "attributes": {
+                        "field-1": "foo",
+                        "field-2": [
+                            "fiz",
+                            "buz
+                        ],
+                        "field-3": {
+                            "key-1": "value-1",
+                            "key-2": "value-2"
+                        }
+                    },
+                    "id": "1",
+                    "type": "item"
+                },
+                {
+                    "attributes": {
+                        "field-1": "bar",
+                        "field-2": [
+                            "cat",
+                            "dog
+                        ],
+                        "field-3": {
+                            "key-1": "value-3",
+                            "key-2": "value-4"
+                        }
+                    },
+                    "id": "2",
+                    "type": "item"
+                }
+            ]
+        }
 
 ### Create a New Question [POST]
 
@@ -51,7 +65,7 @@ form of choices.
             ]
         }
 
-+ Response 201 (application/json)
++ Response 201 (application/vnd.api+json)
 
     + Headers
 
