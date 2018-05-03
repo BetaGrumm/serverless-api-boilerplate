@@ -10,15 +10,15 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "dredd": "^5.1.6",
+    "dredd": "^5.1.7",
     "mocha": "^5.1.1",
-    "nodemon": "^1.17.3",
-    "serverless": "^1.27.0",
-    "serverless-offline": "^3.20.3"
+    "nodemon": "1.17.2",
+    "serverless": "1.26.1",
+    "serverless-offline": "3.20.0"
   },
   "scripts": {
-    "dredd": "./node_modules/dredd/bin/dredd --config ./config/dredd.yml",
-    "start": "./node_modules/nodemon/bin/nodemon.js -e 'yml js json env' --exec 'sls offline start --skipCacheInvalidation'",
+    "dredd": "docker-compose up & sleep 5 && ./node_modules/dredd/bin/dredd --config ./config/dredd.yml; docker-compose down",
+    "start": "docker-compose up & ./node_modules/nodemon/bin/nodemon.js -e 'yml js json env' --exec 'node_modules/serverless/bin/serverless offline start --skipCacheInvalidation'; docker-compose down",
     "test": "npm run unit && npm run dredd ",
     "unit": "./node_modules/mocha/bin/mocha tests"
   },
