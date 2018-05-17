@@ -1,0 +1,10 @@
+- name: Local Testing
+  type: parallel
+  steps:
+  - name: Unit Tests
+    command: npm run unit
+    service: app
+
+  - name: API Endpiont Tests
+    command: ./node_modules/dredd/bin/dredd --config ./config/dredd.yml
+    service: app
