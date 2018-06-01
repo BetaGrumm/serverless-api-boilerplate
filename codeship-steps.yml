@@ -1,6 +1,10 @@
 - name: Local Testing
   type: serial
   steps:
-  - name: Unit and API Tests
-    command: npm test
+  - name: Unit Tests
+    command: npm run unit
+    service: app
+
+  - name: API Endpiont Tests
+    command: ./node_modules/dredd/bin/dredd --config ./config/dredd.yml
     service: app
