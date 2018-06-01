@@ -1,4 +1,4 @@
-FROM node:8.11.2-slim
+FROM node:10
 LABEL "maintainer"="Micah Kramer <beta.grumm@gmail.com>"
 # add local user for security
 RUN groupadd -r serviceGroup \
