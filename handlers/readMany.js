@@ -1,6 +1,6 @@
 'use strict';
 const connectToDatabase = require('../utils/db');
-const Site = require('../models/Site');
+const Site = require('../models/item');
 require('dotenv').config();
 
 module.exports.read = (event, context, callback) => {

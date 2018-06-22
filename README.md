@@ -1,5 +1,16 @@
 # serverless-dmeo
-A demo prototype for a AWS Lambda workflow using the Serverless framework.
+Serverless-demo is a nodejs based, prototype, API boilerplate that will be used to create
+serverless, AWS lambda-based, APIs in the future. The central API resource theme is 'items'.
+When building a new API based on this prototype, replace the 'items' resource with the
+resource name of your choice. This boilerplate will contain basic, example functionality
+for all CRUD operations, and any supporting logic such as serialization, and MongoDB
+integration, schema validation, CI/CD using Codehsip CI, unit testing with mocha and chai,
+api endpoint testing using dredd and this API blueprint document, as well as documentation
+using the apiary platform.
+
+For full API resource reference, see the [Apiary documentation here](https://serverlessdemo.docs.apiary.io/).
+
+Supports Nodejs v6.x and up.
 
 Notes for creating a new serverless service:
 - npm init # Create new package.json
