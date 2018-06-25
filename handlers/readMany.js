@@ -18,5 +18,11 @@ module.exports.read = (event, context, callback) => {
   //         body: 'Could not fetch the sites.'
   //       }))
   //   });
-  callback(null, { body: { data: [] } })
+  callback(null, {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/vnd.api+json' },
+    body: { 
+      data: []
+    }
+  })
 };
