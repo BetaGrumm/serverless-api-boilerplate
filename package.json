@@ -5,16 +5,17 @@
   "main": "handler.js",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "mongoose": "^5.1.4",
+    "mongoose": "^5.1.6",
     "validator": "^9.4.1"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "dredd": "^5.1.8",
+    "dredd": "^5.1.10",
+    "hooks": "^0.3.2",
     "mocha": "^5.2.0",
     "nodemon": "1.17.2",
-    "serverless": "1.26.1",
-    "serverless-offline": "3.20.0"
+    "serverless": "^1.27.3",
+    "serverless-offline": "^3.25.4"
   },
   "scripts": {
     "dredd": "docker-compose up & sleep 5 && ./node_modules/dredd/bin/dredd --config ./config/dredd.yml; docker-compose down",

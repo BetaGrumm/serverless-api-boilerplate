@@ -1,5 +1,5 @@
 dry-run: null
-hookfiles: tests/api-hooks.js
+hookfiles: tests/api-tests/api-hooks.js
 language: nodejs
 sandbox: false
 server: node_modules/serverless/bin/serverless offline start
