@@ -1,6 +1,6 @@
 'use strict';
 const connectToDatabase = require('../utils/db');
-const Site = require('../models/Site');
+const Site = require('../models/item');
 require('dotenv').config();
 
 module.exports.read = (event, context, callback) => {
@@ -18,5 +18,11 @@ module.exports.read = (event, context, callback) => {
   //         body: 'Could not fetch the sites.'
   //       }))
   //   });
-  callback(null, { body: { data: [] } })
+  callback(null, {
+    statusCode: 200,
+    headers: { 'Content-Type': 'application/vnd.api+json' },
+    body: { 
+      data: []
+    }
+  })
 };

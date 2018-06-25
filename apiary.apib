@@ -3,16 +3,22 @@ HOST: http://serverlessdemo.docs.apiary.io/
 
 # serverless-demo
 
-Serverless-demo is a prototype API boilerplate that will be used to create lambda APIs in the future.
-The central API resource theme is 'items'. When building a new API based on this prototype, replace the 'items' resource with the resource name of your choice.
+Serverless-demo is a nodejs based, prototype, API boilerplate that will be used to create
+serverless, AWS lambda-based, APIs in the future. The central API resource theme is 'items'.
+When building a new API based on this prototype, replace the 'items' resource with the
+resource name of your choice. This boilerplate will contain basic, example functionality
+for all CRUD operations, and any supporting logic such as serialization, and MongoDB
+integration, schema validation, CI/CD using Codehsip CI, unit testing with mocha and chai,
+api endpoint testing using dredd and this API blueprint document, as well as documentation
+using the apiary platform.
 
-## Items Collection [/items]
+# Items Collection [/items]
 
-### List All Items [GET]
+## List All Items [GET]
 
 Retrieve all items for this resource.
 
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
         {
             "data": [
@@ -49,7 +55,7 @@ Retrieve all items for this resource.
             ]
         }
 
-### Create a Single Item [POST]
+## Create a Single Item [POST]
 
 You may create a single item using this resource.
 
