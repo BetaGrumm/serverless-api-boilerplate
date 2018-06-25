@@ -10,9 +10,9 @@ module.exports = connectToDatabase = () => {
         return Promise.resolve();
     }
     console.log('=> creating new database connection...');
-    let uri = process.env.DB_URI
-    console.log("URI " + uri);
-    return mongoose.connect(uri)
+    let url = process.env.DB_URL
+    console.log("URL " + url);
+    return mongoose.connect(url)
         .then(db => {
             isConnected = db.connections[0].readyState;
         });
