@@ -1,0 +1,62 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "attributes": {
+          "$id": "/properties/data/properties/attributes",
+          "type": "object",
+          "properties": {
+            "foo": {
+              "$id": "/properties/data/properties/attributes/properties/foo",
+              "type": "string",
+              "title": "The Foo Schema ",
+              "default": "",
+              "examples": [
+                "fiz"
+              ],
+              "minLength": 0,
+              "maxLength": 9999
+            },
+            "bar": {
+              "$id": "/properties/data/properties/attributes/properties/bar",
+              "type": "integer",
+              "title": "The Bar Schema ",
+              "default": 0,
+              "examples": [
+                1
+              ]
+            }
+          },
+          "required": [
+            "foo",
+            "bar"
+          ]
+        },
+        "type": {
+          "$id": "/properties/data/properties/type",
+          "type": "string",
+          "title": "The Type Schema ",
+          "default": "",
+          "examples": [
+            "item"
+          ],
+          "minLength": 0,
+          "maxLength": 9999
+        }
+      },
+      "required": [
+        "attributes",
+        "type"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
