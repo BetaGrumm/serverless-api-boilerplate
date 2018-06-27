@@ -1,10 +1,11 @@
 'use strict';
 
+const { connectToDatabase, formatValidationErrors, itemSerializer } = require('../utils');
 const Item = require('../models/item');
-const { Validator } = require('jsonschema');
-const { connectToDatabase, formatValidationErrors } = require('../utils');
 const PostSchema = require('../schemas/PostSchema');
-let v = new Validator();
+const { Validator } = require('jsonschema');
+const JSONAPISerializer = require('jsonapi-serializer').Serializer;
+var v = new Validator();
 
 module.exports.create = (event, context, callback) => {
   // validate request body
@@ -24,21 +25,29 @@ module.exports.create = (event, context, callback) => {
 
   // valid. Process request and respond.
   let attributes = body.data.attributes;
-  // serialize for storage
+  // deserialize for storage
   connectToDatabase()
-    .then(() => {
-      Item.create(attributes)
-        .then(item => {
-          // deserialize for resposne
-          callback(null, {
-            statusCode: 200,
-            body: JSON.stringify(item)
-          });
-        })
-        .catch(err => callback(null, {
-          statusCode: err.statusCode || 500,
-          headers: { 'Content-Type': 'application/vnd.api+json' },
-          body: 'Unable to create the item.'
-        }));
-    });
+    .then(() => Item.create(attributes))
+    .then(createdItem => {
+      // serialize for resposne
+      let responseBody = itemSerializer.serialize(createdItem);
+      console.log(`Response Body: ${responseBody}`);
+      callback(null, {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/vnd.api+json' },
+        body: JSON.stringify(responseBody)
+      });
+    })
+    .catch(err => callback(null, {
+      statusCode: err.statusCode || 500,
+      headers: { 'Content-Type': 'application/vnd.api+json' },
+      body: {
+        error: {
+          status: 500,
+          title: 'Internal Database Error',
+          detail: `An internal database error occurred: ${err.message}`
+        }
+      }
+    })
+    );
 };

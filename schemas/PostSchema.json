@@ -1,61 +1,82 @@
 {
-  "$id": "http://example.com/example.json",
-  "type": "object",
-  "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/example.json", 
+  "type": "object", 
+  "definitions": {}, 
+  "$schema": "http://json-schema.org/draft-07/schema#", 
+  "additionalProperties": false, 
   "properties": {
     "data": {
-      "$id": "/properties/data",
-      "type": "object",
+      "$id": "/properties/data", 
+      "type": "object", 
+      "additionalProperties": false, 
       "properties": {
+        "type": {
+          "$id": "/properties/data/properties/type", 
+          "type": "string", 
+          "default": "", 
+          "examples": [
+            "item"
+          ], 
+          "minLength": 0, 
+          "maxLength": 9999
+        }, 
         "attributes": {
-          "$id": "/properties/data/properties/attributes",
-          "type": "object",
+          "$id": "/properties/data/properties/attributes", 
+          "type": "object", 
+          "additionalProperties": false, 
           "properties": {
-            "foo": {
-              "$id": "/properties/data/properties/attributes/properties/foo",
-              "type": "string",
-              "title": "The Foo Schema ",
-              "default": "",
+            "itemFoo": {
+              "$id": "/properties/data/properties/attributes/properties/itemFoo", 
+              "type": "string", 
+              "default": "", 
               "examples": [
                 "fiz"
-              ],
-              "minLength": 0,
+              ], 
+              "minLength": 0, 
               "maxLength": 9999
-            },
-            "bar": {
-              "$id": "/properties/data/properties/attributes/properties/bar",
-              "type": "integer",
-              "title": "The Bar Schema ",
-              "default": 0,
+            }, 
+            "itemBar": {
+              "$id": "/properties/data/properties/attributes/properties/itemBar", 
+              "type": "integer", 
+              "default": 0, 
               "examples": [
                 1
               ]
+            }, 
+            "itemSubObject": {
+              "$id": "/properties/data/properties/attributes/properties/itemSubObject", 
+              "type": "object", 
+              "additionalProperties": false, 
+              "properties": {
+                "subField1": {
+                  "$id": "/properties/data/properties/attributes/properties/itemSubObject/properties/subField1", 
+                  "type": "string", 
+                  "default": "", 
+                  "examples": [
+                    "test1"
+                  ], 
+                  "minLength": 0, 
+                  "maxLength": 9999
+                }
+              }, 
+              "required": [
+                "subField1"
+              ]
             }
-          },
+          }, 
           "required": [
-            "foo",
-            "bar"
+            "itemFoo", 
+            "itemBar", 
+            "itemSubObject"
           ]
-        },
-        "type": {
-          "$id": "/properties/data/properties/type",
-          "type": "string",
-          "title": "The Type Schema ",
-          "default": "",
-          "examples": [
-            "item"
-          ],
-          "minLength": 0,
-          "maxLength": 9999
         }
-      },
+      }, 
       "required": [
-        "attributes",
-        "type"
+        "type", 
+        "attributes"
       ]
     }
-  },
+  }, 
   "required": [
     "data"
   ]

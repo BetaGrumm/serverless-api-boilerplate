@@ -5,6 +5,7 @@
   "main": "handler.js",
   "dependencies": {
     "dotenv": "^5.0.1",
+    "jsonapi-serializer": "^3.5.6",
     "jsonschema": "^1.2.4",
     "mongoose": "^5.1.6",
     "validator": "^9.4.1"

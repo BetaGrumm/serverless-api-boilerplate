@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
  * Schema types reference: http://mongoosejs.com/docs/schematypes.html
  */
 const ItemSchema = new mongoose.Schema({
-    foo: String,
-    bar: Number
+  itemFoo: String,
+  itemBar: Number
 });
 
 /**
