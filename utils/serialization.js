@@ -1,6 +1,10 @@
 const { Serializer, Deserializer } = require('jsonapi-serializer');
 const JSONAPIError = require('jsonapi-serializer').Error;
 
+/**
+ * Create an instance of Serilaizer with options to be exported and used elsewhere in the
+ * service.
+ */
 const serializer = new Serializer('item', {
   attributes: [
     'itemFoo',
@@ -10,6 +14,9 @@ const serializer = new Serializer('item', {
   pluralizeType: false
 });
 
+/**
+ * Create an instance of Deserializer with options to be exported and used else where.
+ */
 const deserializer = new Deserializer({keyForAttribute: 'camelCase'});
 
 /**
