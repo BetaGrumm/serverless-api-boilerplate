@@ -6,12 +6,10 @@
   "additionalProperties": false, 
   "properties": {
     "data": {
-      "$id": "/properties/data", 
       "type": "object", 
       "additionalProperties": false, 
       "properties": {
         "type": {
-          "$id": "/properties/data/properties/type", 
           "type": "string", 
           "default": "", 
           "examples": [
@@ -21,12 +19,10 @@
           "maxLength": 9999
         }, 
         "attributes": {
-          "$id": "/properties/data/properties/attributes", 
           "type": "object", 
           "additionalProperties": false, 
           "properties": {
-            "itemFoo": {
-              "$id": "/properties/data/properties/attributes/properties/itemFoo", 
+            "item-foo": {
               "type": "string", 
               "default": "", 
               "examples": [
@@ -35,39 +31,36 @@
               "minLength": 0, 
               "maxLength": 9999
             }, 
-            "itemBar": {
-              "$id": "/properties/data/properties/attributes/properties/itemBar", 
+            "item-bar": {
               "type": "integer", 
               "default": 0, 
               "examples": [
                 1
               ]
             }, 
-            "itemSubObject": {
-              "$id": "/properties/data/properties/attributes/properties/itemSubObject", 
+            "item-sub-object": {
               "type": "object", 
               "additionalProperties": false, 
               "properties": {
-                "subField1": {
-                  "$id": "/properties/data/properties/attributes/properties/itemSubObject/properties/subField1", 
+                "sub-field": {
                   "type": "string", 
                   "default": "", 
                   "examples": [
-                    "test1"
+                    "test"
                   ], 
                   "minLength": 0, 
                   "maxLength": 9999
                 }
               }, 
               "required": [
-                "subField1"
+                "sub-field"
               ]
             }
           }, 
           "required": [
-            "itemFoo", 
-            "itemBar", 
-            "itemSubObject"
+            "item-foo", 
+            "item-bar", 
+            "item-sub-object"
           ]
         }
       }, 

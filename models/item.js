@@ -7,7 +7,14 @@ const mongoose = require('mongoose');
  */
 const ItemSchema = new mongoose.Schema({
   itemFoo: String,
-  itemBar: Number
+  itemBar: Number,
+  itemSubObject: {
+    subField: String
+  }
+},
+{
+  minimize: false,
+  timestamps: true
 });
 
 /**

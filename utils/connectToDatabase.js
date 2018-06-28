@@ -14,6 +14,7 @@ module.exports = function connectToDatabase() {
   console.log(`Connection URL: ${DB_URL}`);
   return mongoose.connect(DB_URL)
     .then(db => {
-      isConnected = db.connections[0].readyState;
+      //isConnected = db.connections[0].readyState;
+      isConnected = mongoose.connection.readyState;
     });
 };

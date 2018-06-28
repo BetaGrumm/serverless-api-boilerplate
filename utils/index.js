@@ -1,9 +1,11 @@
 const connectToDatabase = require('./connectToDatabase');
 const formatValidationErrors = require('./formatValidationErrors');
-const itemSerializer = require('./itemSerializer');
+const serializer = require('./serializer');
+const deserializer = require('./deserializer');
 
 module.exports = {
   connectToDatabase,
   formatValidationErrors,
-  itemSerializer
+  serializer,
+  deserializer
 };
