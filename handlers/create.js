@@ -4,7 +4,9 @@ const {
   connectToDatabase,
   formatValidationErrors,
   serializer,
-  deserializer
+  deserializer,
+  errorSerializer,
+  respond
 } = require('../utils');
 const Item = require('../models/item');
 const PostSchema = require('../schemas/PostSchema');
@@ -35,15 +37,11 @@ module.exports.create = (event, context, callback) => {
       connectToDatabase()
         .then(() => Item.create(attributes))
         .then(createdRecord => {
-          console.log(`createdRecord: ${createdRecord}`);
           // serialize for resposne
           let responseBody = serializer.serialize(createdRecord.toObject());
-          console.log(`serialized: ${JSON.stringify(responseBody)}`);
-          callback(null, {
-            statusCode: 200,
-            headers: { 'Content-Type': 'application/vnd.api+json' },
-            body: JSON.stringify(responseBody)
-          });
+          // respond
+          respond(responseBody, callback);
+          
         })
         .catch(err => callback(null, {
           statusCode: err.statusCode || 500,
@@ -51,8 +49,8 @@ module.exports.create = (event, context, callback) => {
           body: {
             error: {
               status: 500,
-              title: 'Internal Database Error',
-              detail: `An internal database error occurred: ${err.message}`
+              title: 'Internal Server Error',
+              detail: `An internal server error occurred: ${err.message}`
             }
           }
         }));
