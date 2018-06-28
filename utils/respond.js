@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * This function wraps AWS lambda's callback() function and collects repeated things like
  * headers and format in one place for cleaner response code elsewhere.
@@ -9,8 +8,9 @@
  * event
  */
 function respond(serializedResponse, callback) {
+  // This invokes the AWS Lambda response callback method.
   callback(null, {
-    statusCode: serializedResponse.status,
+    statusCode: serializedResponse.errors[0].status,
     headers: { 'Content-Type': 'application/vnd.api+json' },
     body: JSON.stringify(serializedResponse)
   });
