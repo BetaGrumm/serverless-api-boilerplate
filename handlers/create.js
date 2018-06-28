@@ -34,7 +34,7 @@ module.exports.create = (event, context, callback) => {
         .then(createdRecord => {
           // serialize and respond
           callback(null, {
-            statusCode: 200,
+            statusCode: 201,
             headers: { 'Content-Type': 'application/vnd.api+json' },
             body: JSON.stringify(serializer.serialize(createdRecord.toObject()))
           });

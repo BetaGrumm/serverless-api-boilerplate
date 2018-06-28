@@ -63,42 +63,30 @@ You may create a single item using this resource.
 
         {
             "data": {
+                "type": "item",
                 "attributes": {
-                    "field-1": "foo",
-                    "field-2": [
-                        "fiz",
-                        "buz"
-                    ],
-                    "field-3": {
-                        "key-1": "value-1",
-                        "key-2": "value-2"
+                    "item-foo": "fiz",
+                    "item-bar": 1,
+                    "item-sub-object": {
+                        "sub-field": "test"
                     }
-                },
-                "type": "items"
+                }
             }
         }
 
 + Response 201 (application/vnd.api+json)
 
-    + Headers
-
-            Location: /items/3
-
     + Body
 
             {
                 "data": {
-                    "type": "items",
+                    "type": "item",
                     "id": "3",
                     "attributes": {
-                        "field-1": "foo",
-                        "field-2": [
-                            "fiz",
-                            "buz"
-                        ],
-                        "field-3": {
-                            "key-1": "value-1",
-                            "key-2": "value-2"
+                        "item-foo": "fiz",
+                        "item-bar": 1,
+                        "item-sub-object": {
+                            "sub-field": "test"
                         }
                     }
                 }

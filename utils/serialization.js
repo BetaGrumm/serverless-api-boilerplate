@@ -11,6 +11,7 @@ const serializer = new Serializer('item', {
     'itemBar',
     'itemSubObject'
   ],
+  id: '_id',
   pluralizeType: false
 });
 
