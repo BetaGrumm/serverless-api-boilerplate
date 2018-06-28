@@ -5,7 +5,6 @@ module.exports = function formatValidationErrors(validation) {
   // Transpose each element of Validation.errors[] to the appropriate format
   errors = validation.map(error => {
     let message;
-    // console.log(error);
     if (error.name === 'additionalProperties') {
       message = `'${error.argument}' is an invalid site attribute.`;
     } else {
