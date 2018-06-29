@@ -12,9 +12,15 @@ integration, schema validation, CI/CD using Codehsip CI, unit testing with mocha
 api endpoint testing using dredd and this API blueprint document, as well as documentation
 using the apiary platform.
 
-# Items Collection [/items]
+# Group Items
+Items are what this api service is all about. They are a great representation of just about
+anything, yet generic enough to serve as the perfect boilerplate example.
+With this service, you can create, update, delete, read one, or even read many items.
+See the examples below for information on how to do each action on this resource.
 
-## List All Items [GET]
+## Item Collection [/items]
+
+### List All Items [GET]
 
 Retrieve all items for this resource.
 
@@ -55,7 +61,7 @@ Retrieve all items for this resource.
             ]
         }
 
-## Create a Single Item [POST]
+### Create a Single Item [POST]
 
 You may create a single item using this resource.
 
@@ -63,42 +69,29 @@ You may create a single item using this resource.
 
         {
             "data": {
+                "type": "item",
                 "attributes": {
-                    "field-1": "foo",
-                    "field-2": [
-                        "fiz",
-                        "buz"
-                    ],
-                    "field-3": {
-                        "key-1": "value-1",
-                        "key-2": "value-2"
+                    "item-foo": "fiz",
+                    "item-bar": 1,
+                    "item-sub-object": {
+                        "sub-field": "test"
                     }
-                },
-                "type": "items"
+                }
             }
         }
 
 + Response 201 (application/vnd.api+json)
 
-    + Headers
-
-            Location: /items/3
-
     + Body
 
             {
                 "data": {
-                    "type": "items",
-                    "id": "3",
+                    "type": "item",
                     "attributes": {
-                        "field-1": "foo",
-                        "field-2": [
-                            "fiz",
-                            "buz"
-                        ],
-                        "field-3": {
-                            "key-1": "value-1",
-                            "key-2": "value-2"
+                        "item-foo": "fiz",
+                        "item-bar": 1,
+                        "item-sub-object": {
+                            "sub-field": "test"
                         }
                     }
                 }
