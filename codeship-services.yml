@@ -3,7 +3,7 @@ app:
     image: betagrumm/serverless-demo
     dockerfile: Dockerfile
   environment:
-    - ENV=ci
+    ENV: ci
   links:
     - mongodb
   ports:
