@@ -2,12 +2,16 @@ app:
   build:
     image: betagrumm/serverless-demo
     dockerfile: Dockerfile
+  environment:
+    - ENV=ci
   depends_on:
     - mongodb
+  ports:
+    - "4000"
 
 mongodb:
   image: mongo:3.4
   command: mongod --httpinterface --rest
   ports:
-    - "27017:27017"
+    - "27017"
   cached: true

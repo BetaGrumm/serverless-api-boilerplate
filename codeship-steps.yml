@@ -6,5 +6,5 @@
     service: app
 
   - name: API Endpiont Tests
-    command: ./node_modules/dredd/bin/dredd --config ./config/dredd.yml
+    command: ./node_modules/dredd/bin/dredd --config ./config/dredd.yml --host http://app:4000
     service: app

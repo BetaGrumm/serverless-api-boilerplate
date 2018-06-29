@@ -9,4 +9,4 @@ RUN mkdir -p /home/serviceUser/app
 WORKDIR /home/serviceUser/app
 COPY . /home/serviceUser/app
 RUN rm -rf node_modules && npm install --quiet
-EXPOSE 3000
+EXPOSE 4000
