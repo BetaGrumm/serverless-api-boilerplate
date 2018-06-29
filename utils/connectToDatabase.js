@@ -8,10 +8,10 @@ console.log(`ENV: ${ENV}`);
 let url;
 switch (ENV) {
   case 'ci':
-    url = process.env.DB_URL_CI;
+    url = 'mongodb://mongodb/items';
     break;
   default:
-    url = process.env.DB_URL_LOCAL;
+    url = 'mongodb://localhost/items';
 }
 module.exports = function connectToDatabase() {
   if (isConnected) {
