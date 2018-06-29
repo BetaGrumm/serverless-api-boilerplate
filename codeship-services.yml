@@ -4,7 +4,7 @@ app:
     dockerfile: Dockerfile
   environment:
     - ENV=ci
-  depends_on:
+  links:
     - mongodb
   ports:
     - "4000"
