@@ -4,6 +4,7 @@ require('dotenv').config({ path: path.resolve(process.cwd(), 'vars.env') });
 mongoose.Promise = global.Promise;
 let isConnected;
 let { ENV } = process.env;
+console.log(`ENV: ${ENV}`);
 let url;
 switch (ENV) {
   case 'ci':
