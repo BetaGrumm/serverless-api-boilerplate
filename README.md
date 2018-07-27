@@ -1,4 +1,4 @@
-# serverless-dmeo
+# serverless-demo
 Serverless-demo is a nodejs based, prototype, API boilerplate that will be used to create
 serverless, AWS lambda-based, APIs in the future. The central API resource theme is 'items'.
 When building a new API based on this prototype, replace the 'items' resource with the
