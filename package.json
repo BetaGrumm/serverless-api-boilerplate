@@ -17,7 +17,7 @@
     "hooks": "^0.3.2",
     "mocha": "^5.2.0",
     "nodemon": "1.17.2",
-    "serverless": "^1.39.1",
+    "serverless": "^1.40.0",
     "serverless-offline": "^4.9.2"
   },
   "scripts": {
