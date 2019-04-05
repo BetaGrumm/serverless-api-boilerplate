@@ -8,6 +8,9 @@ integration, schema validation, CI/CD using Codehsip CI, unit testing with mocha
 api endpoint testing using dredd and this API blueprint document, as well as documentation
 using the apiary platform.
 
+This service uses [JSON:API](https://jsonapi.org/) specifications for requests and responses.
+[JSON Schema](https://json-schema.org/) is used to validate requests, and describe requests and responses in the API Blueprint. See apiary.apib file.
+
 For full API resource reference, see the [Apiary documentation here](https://serverlessdemo.docs.apiary.io/).
 
 Supports Nodejs v6.x and up.
