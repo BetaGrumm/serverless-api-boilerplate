@@ -21,8 +21,8 @@ module.exports.read = (event, context, callback) => {
   callback(null, {
     statusCode: 200,
     headers: { 'Content-Type': 'application/vnd.api+json' },
-    body: { 
+    body: JSON.stringify({ 
       data: []
-    }
+    })
   });
 };
