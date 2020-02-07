@@ -12,13 +12,13 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "dredd": "^8.0.6",
+    "dredd": "^13.0.0",
     "eslint": "^5.15.3",
     "hooks": "^0.3.2",
     "mocha": "^5.2.0",
     "nodemon": "1.17.2",
-    "serverless": "^1.40.0",
-    "serverless-offline": "^4.9.2"
+    "serverless": "^1.63.0",
+    "serverless-offline": "^5.12.1"
   },
   "scripts": {
     "dredd": "docker-compose up & sleep 5 && ./node_modules/dredd/bin/dredd --config ./config/dredd.yml; docker-compose down",
