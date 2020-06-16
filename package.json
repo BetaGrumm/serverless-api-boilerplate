@@ -4,21 +4,21 @@
   "description": "A demo prototype for a AWS Lambda workflow using the Serverless framework.",
   "main": "handler.js",
   "dependencies": {
-    "dotenv": "^5.0.1",
-    "jsonapi-serializer": "3.5.6",
-    "jsonschema": "1.2.4",
-    "mongoose": "^5.4.19",
-    "validator": "^9.4.1"
+    "dotenv": "^8.2.0",
+    "jsonapi-serializer": "^3.6.6",
+    "jsonschema": "^1.2.6",
+    "mongoose": "^5.9.19",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "dredd": "^13.0.0",
-    "eslint": "^5.15.3",
+    "chai": "^4.2.0",
+    "dredd": "^13.1.1",
+    "eslint": "^7.2.0",
     "hooks": "^0.3.2",
-    "mocha": "^5.2.0",
-    "nodemon": "1.17.2",
-    "serverless": "^1.63.0",
-    "serverless-offline": "^5.12.1"
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "serverless": "^1.73.1",
+    "serverless-offline": "^6.4.0"
   },
   "scripts": {
     "dredd": "docker-compose up & sleep 5 && ./node_modules/dredd/bin/dredd --config ./config/dredd.yml; docker-compose down",
